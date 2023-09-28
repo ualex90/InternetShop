@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "internetshop"
+version = "0.1.0"
+description = ""
+authors = ["u_alex90 <u_alex90@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
