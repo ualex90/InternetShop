@@ -1,54 +1,122 @@
-<!doctype html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HomeSys</title>
+    <title>Каталог</title>
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">HomeSys</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Карта сайта</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Каталог</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contacts/">Контакты</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-success" type="submit">Search</button>
-        </form>
-      </div>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="/static/img/home_logo.svg" alt="Logo" width="30" height="30"
+                 class="d-inline-block align-text-top">
+            HomeSys
+        </a>
+        <nav class="ms-5">
+            <a class="btn btn-sm btn-outline-secondary" type="submit" href="/contacts/">Контакты</a>
+        </nav>
     </div>
-  </div>
 </nav>
-
+<div class="container-fluid">
+    <div class="row col-3">
+        <h3>Умные системы для Вашего дома</h3>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header box-shadow text-center">
+                    <h5><b>Комплексное решение</b></h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Все и сразу</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">1. Составление техзадания по требованиям заказчика</li>
+                        <li class="list-group-item">2. Подбор компонентов</li>
+                        <li class="list-group-item">3. Проектирование системы умного дома</li>
+                        <li class="list-group-item">4. Сборка элементов системы на предприятии</li>
+                        <li class="list-group-item">5. Монтаж и запуск в работу</li>
+                    </ul>
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header box-shadow text-center">
+                    <h5><b>Проектирование системы</b></h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Собери своими руками</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">1. Определение потребности</li>
+                        <li class="list-group-item">2. Функциональное разделение</li>
+                        <li class="list-group-item">3. Подбор компонентов системы</li>
+                        <li class="list-group-item">4. Разработка технических и программых решений</li>
+                        <li class="list-group-item">5. Консультация по внедрению системы</li>
+                    </ul>
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header box-shadow text-center">
+                    <h5><b>Монтаж Вашей системы</b></h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Воплотим решения</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">1. Проверка целосности компонентов</li>
+                        <li class="list-group-item">2. Прокладка всех необходимых коммуникаций</li>
+                        <li class="list-group-item">3. Монтаж и настройка компонентов системы</li>
+                        <li class="list-group-item">4. Выявление недочетов</li>
+                        <li class="list-group-item">5. Комплексное опробование системы</li>
+                    </ul>
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    HomeSYS
+                    <small class="d-block mb-3 text-muted">&copy; 2023</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Категории</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Системы умного дома</a></li>
+                        <li><a class="text-muted" href="#">Веб-приложения</a></li>
+                        <li><a class="text-muted" href="#">Полезные утилиты</a></li>
+                        <li><a class="text-muted" href="#">Интеграция со сторонними сервисами</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Мы в соцсетях</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Вконтакте</a></li>
+                        <li><a class="text-muted" href="#">Телеграмм</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>О нас</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="/contacts/">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
 <script src="/static/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
