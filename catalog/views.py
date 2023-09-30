@@ -22,6 +22,6 @@ def contacts(request):
 
         # формирование сообщения
         time = dt.now()
-        message = {str(time.isoformat()): {name: f'{phone}. {message}'}}
+        message = {str(time.isoformat()): {'name': name, 'phone': phone, 'message': message}}
         message_file.update_file(message)
     return render(request, 'catalog/contacts.html')
