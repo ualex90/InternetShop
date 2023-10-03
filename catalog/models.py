@@ -4,6 +4,7 @@ from django.db import models
 class Category(models.Model):
     category_name = models.CharField(max_length=100, verbose_name='Наименование')
     category_description = models.TextField(verbose_name='описание')
+    created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
         return f'{self.category_name}'
