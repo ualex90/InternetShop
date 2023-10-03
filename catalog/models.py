@@ -19,5 +19,5 @@ class Product(models.Model):
     image = models.ImageField(verbose_name='Превью')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     prise = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за покупку')
-    date_of_create = models.DateField(auto_now_add=True, verbose_name='Дата создания')
-    date_of_update = models.DateField(auto_now=True, verbose_name='Дата изменения')
+    created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
+    updated_at = models.DateField(auto_now=True, verbose_name='Дата изменения')
