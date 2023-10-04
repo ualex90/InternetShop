@@ -12,6 +12,7 @@ oyaml = "^1.0"
 python-dotenv = "^1.0.0"
 psycopg2-binary = "^2.9.8"
 pillow = "^10.0.1"
+ipython = "^8.16.1"
 
 
 [build-system]
