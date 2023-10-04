@@ -1,0 +1,98 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "category_name": "ПЛК",
+      "category_description": "Программируемые логические контроллеры"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "category_name": "Модули расширения",
+      "category_description": "Модули расширения для ПЛК"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "category_name": "Промышленные компьютеры",
+      "category_description": "Компьютеры для сервера умного дома"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "category_name": "Коммутационные устройства",
+      "category_description": "Устройства для управления питанием объектов"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "category_name": "Датчики освещения",
+      "category_description": "Датчики освещения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+      "category_name": "Датчики температуры",
+      "category_description": "Датчики температуры"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+      "category_name": "Датчики утечек",
+      "category_description": "Датчики утечек"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 8,
+    "fields": {
+      "category_name": "Датчики движения",
+      "category_description": "Датчики движения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 9,
+    "fields": {
+      "category_name": "Охранные извещатели",
+      "category_description": "Извещатели охранного комплекса"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 10,
+    "fields": {
+      "category_name": "Пожарные извещатели",
+      "category_description": "Извещатели противопожарного комплекса"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 11,
+    "fields": {
+      "category_name": "ППКП",
+      "category_description": "Приемно-контрольные приборы пожарной сигнализации"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 12,
+    "fields": {
+      "category_name": "Электроприводы",
+      "category_description": "Электроприводы"
+    }
+  }
+]
