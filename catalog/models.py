@@ -18,6 +18,6 @@ class Product(models.Model):
     product_description = models.TextField(verbose_name='Описание')
     image = models.ImageField(verbose_name='Превью')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
-    prise = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за покупку')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за покупку')
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateField(auto_now=True, verbose_name='Дата изменения')
