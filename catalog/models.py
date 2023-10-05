@@ -21,3 +21,23 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за покупку')
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateField(auto_now=True, verbose_name='Дата изменения')
+
+    def __str__(self):
+        return f'{self.product_name} {self.price}'
+
+    class Meta:
+        verbose_name = 'продукт'
+        verbose_name_plural = 'продукты'
+
+
+class Contacts(models.Model):
+    country = models.CharField(max_length=50, verbose_name='Страна')
+    inn = models.IntegerField(verbose_name='ИНН')
+    address = models.CharField(max_length=250, verbose_name='Адрес')
+
+    def __str__(self):
+        return f'{self.address}'
+
+    class Meta:
+        verbose_name = 'адрес'
+        verbose_name_plural = 'адреса'
