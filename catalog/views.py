@@ -5,7 +5,11 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'catalog/index.html')
+    context = {
+        'title': 'Каталог товаров',
+        'description': 'Комплектующие для умных систем',
+    }
+    return render(request, 'catalog/index.html', context)
 
 
 def contacts(request):
@@ -17,4 +21,9 @@ def contacts(request):
         # формирование сообщения
         time = dt.now()
         message = {str(time.isoformat()): {'name': name, 'phone': phone, 'message': message}}
-    return render(request, 'catalog/contacts.html')
+
+    context = {
+        'title': 'Контакты',
+        'description': 'Наши адреса',
+    }
+    return render(request, 'catalog/contacts.html', context)

@@ -1,109 +1,53 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Контакты</title>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="/static/img/home_logo.svg" alt="Logo" width="30" height="30"
-                 class="d-inline-block align-text-top">
-            HomeSys
-        </a>
-        <nav class="ms-5">
-            <a class="btn btn-sm btn-outline-secondary" type="submit" href="/contacts/">Контакты</a>
-            <a class="btn btn-sm btn-outline-secondary" type="submit" href="/admin/">Администрирование</a>
-        </nav>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div class="row col-3">
-        <h3>Контакты</h3>
-    </div>
-</div>
-<div class="container mt-5">
-    <div class="row text-start">
-        <div class="col-lg-9 col-md-6 col-sm-12">
-            <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <tr>
-                            <td class="w-25">Страна</td>
-                            <td>Россия</td>
-                        </tr>
-                        <tr>
-                            <td class="w-25">ИНН</td>
-                            <td>XXXXXXXXX</td>
-                        </tr>
-                        <tr>
-                            <td class="w-25">Адрес</td>
-                            <td>Приморский край, г. Арсеньев</td>
-                        </tr>
-                    </table>
-                </div>
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="row text-start">
+    <div class="col-lg-9 col-md-6 col-sm-12">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <tr>
+                        <td class="w-25">Страна</td>
+                        <td>Россия</td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">ИНН</td>
+                        <td>XXXXXXXXX</td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">Адрес</td>
+                        <td>Приморский край, г. Арсеньев</td>
+                    </tr>
+                </table>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card mb-4 box-shadow">
-                <div class="card-header text-center">
-                    <h5><b>Свяжитесь с нами</b></h5>
-                </div>
-                <div class="card-body">
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Ваше имя"
-                                   required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" name="phone" class="form-control" id="phone"
-                                   placeholder="Контактный телефон" required>
-                        </div>
-                        <div class="mb-3">
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header text-center">
+                <h5><b>Свяжитесь с нами</b></h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Ваше имя"
+                               required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="phone" class="form-control" id="phone"
+                               placeholder="Контактный телефон" required>
+                    </div>
+                    <div class="mb-3">
                             <textarea type="text" name="message" class="form-control" id="message"
                                       placeholder="Сообщение" required></textarea>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-outline-primary">Отправить</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-outline-primary">Отправить</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div class="row m-lg-1">
-        <div class="col-6 col-md">
-            HomeSYS &copy; 2023
-        </div>
-        <div class="col-6 col-md">
-            <h5>Категории</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Системы умного дома</a></li>
-                <li><a class="text-muted" href="#">Веб-приложения</a></li>
-                <li><a class="text-muted" href="#">Полезные утилиты</a></li>
-                <li><a class="text-muted" href="#">Интеграция со сторонними сервисами</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Мы в соцсетях</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Вконтакте</a></li>
-                <li><a class="text-muted" href="#">Телеграмм</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>О нас</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="/contacts/">Контакты</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-</div>
-<script src="/static/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% endblock %}
