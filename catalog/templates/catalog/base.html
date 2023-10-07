@@ -5,20 +5,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="/static/img/home_logo.svg" alt="Logo" width="30" height="30"
-                 class="d-inline-block align-text-top">
-            HomeSys
-        </a>
-        <nav class="ms-5">
-            <a class="btn btn-sm btn-outline-secondary" type="submit" href="/contacts/">Контакты</a>
-            <a class="btn btn-sm btn-outline-secondary" type="submit" href="/admin/">Администрирование</a>
-        </nav>
+<nav>
+    <div class="collapse text-bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                {% include 'catalog/includes/inc_main_menu.html' %}
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <img src="{% static 'img/home_logo.svg' %}" alt="Logo" width="50" height="50"
+                     class="d-inline-block align-text-top">
+                <strong>HomeSys</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
     </div>
 </nav>
 <div class="container-fluid">
