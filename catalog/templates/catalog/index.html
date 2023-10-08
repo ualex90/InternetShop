@@ -1,66 +1,9 @@
 {% extends 'catalog/base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-4">
-        <div class="card  box-shadow">
-            <div class="card-header text-center">
-                <h5><b>Комплексное решение</b></h5>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title text-center">Все и сразу</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">1. Составление техзадания по требованиям заказчика</li>
-                    <li class="list-group-item">2. Подбор компонентов</li>
-                    <li class="list-group-item">3. Проектирование системы умного дома</li>
-                    <li class="list-group-item">4. Сборка элементов системы на предприятии</li>
-                    <li class="list-group-item">5. Монтаж и запуск в работу</li>
-                </ul>
-                <div class="d-grid gap-2">
-                    <a href="#" class="btn btn-outline-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
+    <div class="row">
+        {% for product in product_list %}
+            {% include 'catalog/includes/inc_product_card.html' %}
+        {% endfor %}
     </div>
-    <div class="col-4">
-        <div class="card box-shadow">
-            <div class="card-header text-center">
-                <h5><b>Проектирование системы</b></h5>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title text-center">Собери своими руками</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">1. Определение потребности</li>
-                    <li class="list-group-item">2. Функциональное разделение</li>
-                    <li class="list-group-item">3. Подбор компонентов системы</li>
-                    <li class="list-group-item">4. Разработка технических и программых решений</li>
-                    <li class="list-group-item">5. Консультация по внедрению системы</li>
-                </ul>
-                <div class="d-grid gap-2">
-                    <a href="#" class="btn btn-outline-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-4">
-        <div class="card box-shadow">
-            <div class="card-header text-center">
-                <h5><b>Монтаж Вашей системы</b></h5>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title text-center">Воплотим решения</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">1. Проверка целосности компонентов</li>
-                    <li class="list-group-item">2. Прокладка всех необходимых коммуникаций</li>
-                    <li class="list-group-item">3. Монтаж и настройка компонентов системы</li>
-                    <li class="list-group-item">4. Выявление недочетов</li>
-                    <li class="list-group-item">5. Комплексное опробование системы</li>
-                </ul>
-                <div class="d-grid gap-2">
-                    <a href="#" class="btn btn-outline-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}
