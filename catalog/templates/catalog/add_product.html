@@ -1,0 +1,37 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+    <div class="row">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-0">
+                <select class="form-select" name="category" aria-label="Пример выбора по умолчанию">
+                    <option selected>Категория продукта</option>
+                    {% for category in category_list %}
+                        <option value={{ category.pk }}>{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="emailHelp" class="form-text">Выберете категорию продукта из списка.</div>
+            </div>
+            <div class="mb-0">
+                <label for="name"></label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Наименование">
+                <div id="emailHelp" class="form-text">Наименование не более 100 символов.</div>
+            </div>
+            <div class="mb-0">
+                <label for="description"></label>
+                <input type="text" name="description" class="form-control" id="description" placeholder="Описание">
+                <div id="emailHelp" class="form-text">Подробное описание продукта.</div>
+            </div>
+            <div class="mb-3">
+                <label for="price"></label>
+                <input type="text" name="price" class="form-control" id="price" placeholder="Цена">
+                <div id="emailHelp" class="form-text">Цена продукта в формате "999.99".</div>
+            </div>
+            <div class="mb-3">
+                <input type="file" name="image" class="form-control" id="image">
+                <div id="emailHelp" class="form-text">Загрузите изображение продукта.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+{% endblock %}
