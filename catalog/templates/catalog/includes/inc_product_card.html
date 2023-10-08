@@ -1,0 +1,20 @@
+{% load catalog_tags %}
+<div class="col-md-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <h5 class="d-inline-block mb-2 text-primary-emphasis">{{ product.price }} р.</h5>
+            <h4 class="mb-0">{{ product.name }}</h4>
+            <p class="card-text mb-auto">{{ product.description|truncatechars:100 }}</p>
+            <a class="btn btn-sm btn-outline-primary form-control" type="submit"
+               href="{% url 'catalog:product' product.pk %}">
+                Подробнее
+            </a>
+        </div>
+        <div class="col-4 m-2">
+            <img class="card-img-top"
+                    {#                 src="{{ product.image|mediapath }}"#}
+                 src="{% mediapath product.image %}"
+                 alt="Card image cap">
+        </div>
+    </div>
+</div>

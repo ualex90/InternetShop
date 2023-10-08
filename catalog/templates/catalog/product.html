@@ -1,0 +1,29 @@
+{% extends 'catalog/base.html' %}
+{% load catalog_tags %}
+{% block content %}
+    <div class="row">
+        <div class="col-6">
+            <h5>Цена: {{ product.price }} р.</h5>
+            <div class="mt-5">
+                <h5>Описание:</h5>
+                <p class="card-text mb-auto">{{ product.description }}</p>
+            </div>
+            <div class="mt-5">
+                <h5>Категория:</h5>
+                <a class="card-text mb-auto"
+                   href="{% url 'catalog:products' product.category.pk %}">{{ product.category }} </a>
+            </div>
+            <div class="mt-5">
+                <p class="card-text mb-auto">Добавлено: {{ product.created_at }}</p>
+            </div>
+            <div class="mt-1">
+                <p class="card-text mb-auto">Изменено: {{ product.updated_at }}</p>
+            </div>
+        </div>
+        <div class="col-6">
+            <img class="card-img-top"
+                 src="{{ product.image|mediapath }}"
+                 alt="Card image cap">
+        </div>
+    </div>
+{% endblock %}
