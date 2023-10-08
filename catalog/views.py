@@ -30,10 +30,11 @@ def products(request, pk):
 def product(request, pk):
     product_item = Product.objects.get(pk=pk)
     context = {
-        'title': 'товар',
+        'title': product_item.category,
         'description': product_item.name,
+        'product': product_item,
     }
-    return render(request, 'catalog/index.html', context)
+    return render(request, 'catalog/product.html', context)
 
 
 def contacts(request):
