@@ -12,7 +12,7 @@
             <h4 class="mb-0">{{ product.name }}</h4>
             <p class="card-text mb-auto">{{ product.description|truncatechars:100 }}</p>
             <a class="btn btn-sm btn-outline-primary form-control" type="submit"
-               href="{% url 'catalog:contacts' %}">
+               href="{% url 'catalog:product' product.pk %}">
                 Подробнее
             </a>
         </div>
