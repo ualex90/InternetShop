@@ -1,9 +1,6 @@
-from pathlib import Path
-from datetime import datetime as dt
-
 from django.shortcuts import render
 
-from catalog.models import Product, Category
+from catalog.models import Product, Category, Contacts, Message
 
 
 def categories(request):
@@ -41,15 +38,17 @@ def contacts(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         phone = request.POST.get('phone')
+        email = request.POST.get('email')
         message = request.POST.get('message')
 
-        # формирование сообщения
-        time = dt.now()
-        message = {str(time.isoformat()): {'name': name, 'phone': phone, 'message': message}}
+        message = {'name': name, 'phone': phone, 'email': email, 'message': message}
+        Message.objects.create(**message)
 
+    contact_list = Contacts.objects.all()
     context = {
         'title': 'Контакты',
         'description': 'Наши адреса',
+        'contact_list': contact_list,
     }
     return render(request, 'catalog/contacts.html', context)
 
