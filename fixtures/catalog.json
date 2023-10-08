@@ -1,1 +1,137 @@
-[{"model": "catalog.category", "pk": 61, "fields": {"category_name": "ПЛК", "category_description": "Программируемые логические контроллеры"}}, {"model": "catalog.category", "pk": 62, "fields": {"category_name": "Модули расширения", "category_description": "Модули расширения для ПЛК"}}, {"model": "catalog.category", "pk": 63, "fields": {"category_name": "Промышленные компьютеры", "category_description": "Компьютеры для сервера умного дома"}}, {"model": "catalog.category", "pk": 64, "fields": {"category_name": "Коммутационные устройства", "category_description": "Устройства для управления питанием объектов"}}, {"model": "catalog.category", "pk": 65, "fields": {"category_name": "Датчики освещения", "category_description": "Датчики освещения"}}, {"model": "catalog.category", "pk": 66, "fields": {"category_name": "Датчики температуры", "category_description": "Датчики температуры"}}, {"model": "catalog.category", "pk": 67, "fields": {"category_name": "Датчики утечек", "category_description": "Датчики утечек"}}, {"model": "catalog.category", "pk": 68, "fields": {"category_name": "Датчики движения", "category_description": "Датчики движения"}}, {"model": "catalog.category", "pk": 69, "fields": {"category_name": "Охранные извещатели", "category_description": "Извещатели охранного комплекса"}}, {"model": "catalog.category", "pk": 70, "fields": {"category_name": "Пожарные извещатели", "category_description": "Извещатели противопожарного комплекса"}}, {"model": "catalog.category", "pk": 71, "fields": {"category_name": "ППКП", "category_description": "Приемно-контрольные приборы пожарной сигнализации"}}, {"model": "catalog.category", "pk": 72, "fields": {"category_name": "Электроприводы", "category_description": "Электроприводы"}}]
+[
+  {
+    "model": "catalog.category",
+    "pk": 61,
+    "fields": {
+      "name": "ПЛК",
+      "description": "Программируемые логические контроллеры"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 62,
+    "fields": {
+      "name": "Модули расширения",
+      "description": "Модули расширения для ПЛК"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 63,
+    "fields": {
+      "name": "Промышленные компьютеры",
+      "description": "Компьютеры для сервера умного дома"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 64,
+    "fields": {
+      "name": "Коммутационные устройства",
+      "description": "Устройства для управления питанием объектов"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 65,
+    "fields": {
+      "name": "Датчики освещения",
+      "description": "Датчики освещения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 66,
+    "fields": {
+      "name": "Датчики температуры",
+      "description": "Датчики температуры"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 67,
+    "fields": {
+      "name": "Датчики утечек",
+      "description": "Датчики утечек"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 68,
+    "fields": {
+      "name": "Датчики движения",
+      "description": "Датчики движения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 69,
+    "fields": {
+      "name": "Охранные извещатели",
+      "description": "Извещатели охранного комплекса"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 70,
+    "fields": {
+      "name": "Пожарные извещатели",
+      "description": "Извещатели противопожарного комплекса"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 71,
+    "fields": {
+      "name": "ППКП",
+      "description": "Приемно-контрольные приборы пожарной сигнализации"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 72,
+    "fields": {
+      "name": "Электроприводы",
+      "description": "Электроприводы"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "КОНТРОЛЛЕР SEGNETICS PIXEL 2511-02-0",
+      "description": "Контроллер Segnetics Pixel является свободно программируемым контроллером, предназначенным для решения практически любой задачи в HVAC системах, таких как: вентиляция, центральное кондиционирование, отопление и другие.",
+      "image": "pixel_ethernet.png",
+      "category": 61,
+      "price": "24500.00",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "КОНТРОЛЛЕР SEGNETICS MATRIX-1020-70-0",
+      "description": "Контроллер Segnetics Matrix-1020-70-0\r\n\r\nклавиатура 6 кнопок  \r\nАналоговые входы (AIN): 8\r\nАналоговые выходы (AOUT): 2\r\nДискретные входы (DIN): 8\r\nДискретные выходы (DOUT relay): 6\r\nДискретные выходы (DOUT triac): 0\r\nДискретные выходы (DOUT opto): 2\r\nUSB для конфигурирования, RS-485\r\nКонтроллер нового поколения Matrix разработан специально для работы с большими потоками внешних данных. Высокая скорость, впечатляющая периферия, современный дизайн и отличное качество - свойства Matrix, которые решат большинство задач автоматизации просто и недорого.",
+      "image": "matrix-1020-70-0.jpg",
+      "category": 61,
+      "price": "40700.00",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "КОНТРОЛЛЕР SEGNETICS SMH4-1011-00-0",
+      "description": "Контроллер Segnetics SMH4-1011-00-0\r\n\r\nСистемная шина MTBus​\r\nДисплей: диагональ 4.3\", TFT,«TrueColor», 480 х 272 точек,\r\nДискретные входы (DI): 5 гальванически развязанных\r\nДискретные выходы (DO): 2 транзисторных\r\nПоддерживаемые модули: МС, FMR\r\nВ контроллере Segnetics SMH4-1011-00-0 задействована технология высокоскоростной шины MTBus. Контроллер Segnetics SMH4 сочетает в себе мощную начинку на базе 32-битного процессора с ядром ARM Cortex-A8, сенсорный цветной экран и возможность расширения портов ввода/вывода, что позволяет гибко адаптировать этот ПЛК для широкого спектра задач автоматизации.",
+      "image": "smh-4.jpg",
+      "category": 61,
+      "price": "40000.00",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08"
+    }
+  }
+]
