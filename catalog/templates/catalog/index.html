@@ -1,9 +1,17 @@
 {% extends 'catalog/base.html' %}
-
 {% block content %}
     <div class="row">
-        {% for product in product_list %}
-            {% include 'catalog/includes/inc_product_card.html' %}
-        {% endfor %}
+
+        {% if category_list %}
+            {% for category in category_list %}
+                {% include 'catalog/includes/inc_category_card.html' %}
+            {% endfor %}
+
+        {% elif product_list %}
+            {% for product in product_list %}
+                {% include 'catalog/includes/inc_product_card.html' %}
+            {% endfor %}
+
+        {% endif %}
     </div>
 {% endblock %}
