@@ -1,31 +1,34 @@
-from pathlib import Path
-
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
+from django.views.generic import ListView
 
 from catalog.models import Product, Category, Contacts, Message
-from config.settings import MEDIA_ROOT
 
 
-def categories(request):
-    object_list = Category.objects.all()
-    context = {
+class CategoryListView(ListView):
+    model = Category
+    extra_context = {
         'title': 'Каталог товаров',
         'description': 'Категории',
-        'category_list': object_list,
     }
-    return render(request, 'catalog/index.html', context)
 
 
-def products(request, pk):
-    category_item = Category.objects.get(pk=pk)
-    object_list = Product.objects.filter(category_id=pk)
-    context = {
-        'title': category_item.name,
-        'description': category_item.description,
-        'product_list': object_list,
-    }
-    return render(request, 'catalog/index.html', context)
+class ProductListView(ListView):
+    model = Product
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(category_id=self.kwargs.get('pk'))
+        return queryset
+
+    def get_context_data(self, *args, **kwargs):
+        context_data = super().get_context_data(*args, **kwargs)
+
+        category_item = Category.objects.get(pk=self.kwargs.get('pk'))
+        context_data['title'] = category_item.name
+        context_data['description'] = category_item.description
+
+        return context_data
 
 
 def product(request, pk):
