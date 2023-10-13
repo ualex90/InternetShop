@@ -1,8 +1,7 @@
-from django.core.files.storage import FileSystemStorage
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.urls import reverse
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
-from catalog.models import Product, Category, Contacts, Message
+from catalog.models import Product, Category, Message, Contact
 
 
 class CategoryListView(ListView):
@@ -31,58 +30,71 @@ class ProductListView(ListView):
         return context_data
 
 
-def product(request, pk):
-    product_item = Product.objects.get(pk=pk)
-    context = {
-        'title': product_item.category,
-        'description': product_item.name,
-        'product': product_item,
-    }
-    return render(request, 'catalog/product.html', context)
+class ProductDetailView(DetailView):
+    model = Product
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+
+        product_item = Product.objects.get(pk=self.kwargs.get('pk'))
+        context_data['title'] = product_item.category
+        context_data['description'] = product_item.name
+
+        return context_data
 
 
-def contacts(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        phone = request.POST.get('phone')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-
-        message = {'name': name, 'phone': phone, 'email': email, 'message': message}
-        Message.objects.create(**message)
-
-    contact_list = Contacts.objects.all()
-    context = {
-        'title': 'Контакты',
-        'description': 'Наши адреса',
-        'contact_list': contact_list,
-    }
-    return render(request, 'catalog/contacts.html', context)
-
-
-def add_product(request):
-    if request.method == 'POST':
-        category_id = request.POST.get('category')
-        name = request.POST.get('name')
-        description = request.POST.get('description')
-        price = request.POST.get('price')
-        image = request.FILES.get('image') if 'image' in request.FILES else None
-        if image:
-            fs = FileSystemStorage()
-            fs.save(None, image)
-
-        Product.objects.create(
-            category_id=category_id,
-            name=name,
-            description=description,
-            price=price,
-            image=image,
-        )
-
-    category_list = Category.objects.all()
-    context = {
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ('category', 'name', 'description', 'price', 'image')
+    extra_context = {
         'title': 'Продукт',
         'description': 'Добавление нового продукта',
-        'category_list': category_list,
     }
-    return render(request, 'catalog/add_product.html', context)
+
+    def get_success_url(self):
+        return reverse('catalog:products', args=[self.object.category.pk])
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ('category', 'name', 'description', 'price', 'image')
+    extra_context = {
+        'title': 'Продукт',
+        'description': 'Добавление нового продукта',
+    }
+
+    def get_success_url(self):
+        return reverse('catalog:product', args=[self.object.pk])
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    extra_context = {
+        'title': 'Удаление',
+        'description': 'Удаление продукта',
+    }
+
+    def get_success_url(self):
+        return reverse('catalog:products', args=[self.object.category.pk])
+
+
+class ContactView(TemplateView):
+    template_name = 'catalog/contact_view.html'
+    extra_context = {
+        'title': 'Контакты',
+        'description': 'Наши адреса',
+    }
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = Contact.objects.all()
+        return context_data
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        name = self.request.POST.get('name')
+        phone = self.request.POST.get('phone')
+        email = self.request.POST.get('email')
+        message = self.request.POST.get('message')
+        Message.objects.create(name=name, phone=phone, email=email, message=message)
+        return self.render_to_response(context)
