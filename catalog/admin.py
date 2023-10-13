@@ -4,7 +4,7 @@ from catalog.models import Category, Product, Contact, Message
 
 
 @admin.register(Category)
-class StudentAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     # поиск
     search_fields = ('name',)
@@ -20,7 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 @admin.register(Contact)
-class AddressAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_display = ('id', 'country', 'inn', 'address', 'phone')
 
 
