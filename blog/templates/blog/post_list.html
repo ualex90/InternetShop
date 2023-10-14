@@ -1,11 +1,15 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
-    <div class="col-6 mb-5">
-        <a href="{% url "blog:create" %}" class="btn btn-outline-primary">Добавить запись</a>
+    <div class="col-auto mb-5">
+        <a href="{% url "blog:edit_list" %}" class="btn btn-outline-primary">Настроить ленту</a>
     </div>
     <div class="row">
-        {% for object in object_list %}
-            {% include 'blog/includes/inc_post_card.html' %}
-        {% endfor %}
+        <div class="col-12">
+            {% for object in object_list %}
+                {% if object.is_published %}
+                    {% include 'blog/includes/inc_post_card.html' %}
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
