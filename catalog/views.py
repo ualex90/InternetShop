@@ -59,12 +59,20 @@ class ProductUpdateView(UpdateView):
     model = Product
     fields = ('category', 'name', 'description', 'price', 'image')
     extra_context = {
-        'title': 'Продукт',
-        'description': 'Добавление нового продукта',
+        'title': 'Редактирование',
     }
 
-    def get_success_url(self):
-        return reverse('catalog:product', args=[self.object.pk])
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        product_item = Product.objects.get(pk=self.kwargs.get('pk'))
+
+        context_data['description'] = f'Изменить "{product_item.name}"'
+
+        return context_data
+
+
+def get_success_url(self):
+    return reverse('catalog:product', args=[self.object.pk])
 
 
 class ProductDeleteView(DeleteView):
