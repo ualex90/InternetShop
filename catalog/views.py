@@ -6,10 +6,14 @@ from catalog.models import Product, Category, Message, Contact
 
 class CategoryListView(ListView):
     model = Category
+    # paginate_by = 9
     extra_context = {
         'title': 'Каталог товаров',
         'description': 'Категории',
     }
+
+    def get_paginate_by(self, queryset):
+        return self.request.GET.get('paginate_by', self.paginate_by)
 
 
 class ProductListView(ListView):
