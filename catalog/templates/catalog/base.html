@@ -47,12 +47,10 @@
             HomeSys &copy; 2023
         </div>
         <div class="col-6 col-md">
-            <h5>Категории</h5>
+            <h5>Навигация</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Системы умного дома</a></li>
-                <li><a class="text-muted" href="#">Веб-приложения</a></li>
-                <li><a class="text-muted" href="#">Полезные утилиты</a></li>
-                <li><a class="text-muted" href="#">Интеграция со сторонними сервисами</a></li>
+                <li><a class="text-muted" href="{% url 'catalog:categories' %}">Каталог товаров</a></li>
+                <li><a class="text-muted" href="{% url 'blog:blog' %}">Блог</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
@@ -65,11 +63,11 @@
         <div class="col-6 col-md">
             <h5>О нас</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="/contacts/">Контакты</a></li>
+                <li><a class="text-muted" href="/contact/">Контакты</a></li>
             </ul>
         </div>
     </div>
 </footer>
-<script src="/static/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

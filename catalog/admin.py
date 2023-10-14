@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from catalog.models import Category, Product, Contacts, Message
+from catalog.models import Category, Product, Contact, Message
 
 
 @admin.register(Category)
-class StudentAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     # поиск
     search_fields = ('name',)
@@ -19,8 +19,8 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('category', 'description',)
 
 
-@admin.register(Contacts)
-class AddressAdmin(admin.ModelAdmin):
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
     list_display = ('id', 'country', 'inn', 'address', 'phone')
 
 

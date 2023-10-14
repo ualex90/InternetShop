@@ -30,7 +30,7 @@ class Product(models.Model):
         verbose_name_plural = 'продукты'
 
 
-class Contacts(models.Model):
+class Contact(models.Model):
     country = models.CharField(max_length=50, verbose_name='Страна')
     inn = models.IntegerField(verbose_name='ИНН')
     address = models.CharField(max_length=250, verbose_name='Адрес')
