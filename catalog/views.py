@@ -37,6 +37,12 @@ class ProductListView(ListView):
 class ProductDetailView(DetailView):
     model = Product
 
+    def get_object(self, queryset=None):
+        self.objects = super().get_object(queryset)
+        self.objects.views_count += 1
+        self.objects.save()
+        return self.objects
+
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
 
