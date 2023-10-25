@@ -57,3 +57,17 @@ class Message(models.Model):
     class Meta:
         verbose_name = 'Сообщения'
         verbose_name_plural = 'Сообщение'
+
+
+class ProductVersion(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    number = models.SmallIntegerField(verbose_name='номер')
+    name = models.CharField(max_length=25, verbose_name='название')
+    is_active = models.BooleanField(default=False, verbose_name='текущая')
+
+    def __str__(self):
+        return f'v.{self.number} ({self.name})'
+
+    class Meta:
+        verbose_name = 'версию'
+        verbose_name_plural = 'версии'
