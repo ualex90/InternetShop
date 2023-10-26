@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from catalog.models import Category, Product, Contact, Message
+from catalog.models import Category, Product, Contact, Message, ProductVersion
 
 
 @admin.register(Category)
@@ -31,3 +31,9 @@ class MessageAdmin(admin.ModelAdmin):
     list_filter = ('name', 'phone', 'email',)
     # поиск
     search_fields = ('name', 'phone', 'email', 'message')
+
+
+@admin.register(ProductVersion)
+class ProductVersionAdmin(admin.ModelAdmin):
+    list_display = ('product', 'number', 'name', 'is_active',)
+    list_filter = ('product',)

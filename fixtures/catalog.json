@@ -1,1 +1,424 @@
-[{"model": "catalog.category", "pk": 61, "fields": {"name": "ПЛК", "description": "Программируемые логические контроллеры"}}, {"model": "catalog.category", "pk": 62, "fields": {"name": "Модули расширения", "description": "Модули расширения для ПЛК"}}, {"model": "catalog.category", "pk": 63, "fields": {"name": "Промышленные компьютеры", "description": "Компьютеры для сервера умного дома"}}, {"model": "catalog.category", "pk": 64, "fields": {"name": "Коммутационные устройства", "description": "Устройства для управления питанием объектов"}}, {"model": "catalog.category", "pk": 65, "fields": {"name": "Датчики освещения", "description": "Датчики освещения"}}, {"model": "catalog.category", "pk": 66, "fields": {"name": "Датчики температуры", "description": "Датчики температуры"}}, {"model": "catalog.category", "pk": 67, "fields": {"name": "Датчики утечек", "description": "Датчики утечек"}}, {"model": "catalog.category", "pk": 68, "fields": {"name": "Датчики движения", "description": "Датчики движения"}}, {"model": "catalog.category", "pk": 69, "fields": {"name": "Охранные извещатели", "description": "Извещатели охранного комплекса"}}, {"model": "catalog.category", "pk": 70, "fields": {"name": "Пожарные извещатели", "description": "Извещатели противопожарного комплекса"}}, {"model": "catalog.category", "pk": 71, "fields": {"name": "ППКП", "description": "Приемно-контрольные приборы пожарной сигнализации"}}, {"model": "catalog.category", "pk": 72, "fields": {"name": "Электроприводы", "description": "Электроприводы"}}, {"model": "catalog.product", "pk": 1, "fields": {"category": 61, "name": "КОНТРОЛЛЕР SEGNETICS PIXEL 2511-02-0", "description": "Контроллер Segnetics Pixel является свободно программируемым контроллером, предназначенным для решения практически любой задачи в HVAC системах, таких как: вентиляция, центральное кондиционирование, отопление и другие.", "price": "24500.00", "image": "pixel_ethernet.png", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 2, "fields": {"category": 61, "name": "КОНТРОЛЛЕР SEGNETICS MATRIX-1020-70-0", "description": "Контроллер Segnetics Matrix-1020-70-0\r\n\r\nклавиатура 6 кнопок  \r\nАналоговые входы (AIN): 8\r\nАналоговые выходы (AOUT): 2\r\nДискретные входы (DIN): 8\r\nДискретные выходы (DOUT relay): 6\r\nДискретные выходы (DOUT triac): 0\r\nДискретные выходы (DOUT opto): 2\r\nUSB для конфигурирования, RS-485\r\nКонтроллер нового поколения Matrix разработан специально для работы с большими потоками внешних данных. Высокая скорость, впечатляющая периферия, современный дизайн и отличное качество - свойства Matrix, которые решат большинство задач автоматизации просто и недорого.", "price": "40700.00", "image": "matrix-1020-70-0.jpg", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 3, "fields": {"category": 61, "name": "КОНТРОЛЛЕР SEGNETICS SMH4-1011-00-0", "description": "Контроллер Segnetics SMH4-1011-00-0\r\n\r\nСистемная шина MTBus​\r\nДисплей: диагональ 4.3\", TFT,«TrueColor», 480 х 272 точек,\r\nДискретные входы (DI): 5 гальванически развязанных\r\nДискретные выходы (DO): 2 транзисторных\r\nПоддерживаемые модули: МС, FMR\r\nВ контроллере Segnetics SMH4-1011-00-0 задействована технология высокоскоростной шины MTBus. Контроллер Segnetics SMH4 сочетает в себе мощную начинку на базе 32-битного процессора с ядром ARM Cortex-A8, сенсорный цветной экран и возможность расширения портов ввода/вывода, что позволяет гибко адаптировать этот ПЛК для широкого спектра задач автоматизации.", "price": "40000.00", "image": "smh-4.jpg", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 4, "fields": {"category": 62, "name": "SEGNETICS FMR-1010-10-0", "description": "Segnetics FMR-1010-10-0, универсальный модуль расширения:\r\n8 реле\r\n16 аналоговых входов\r\nУниверсальные модули ввода/вывода FMR предназначены для наращивания каналов в системах автоматизированного управления и сбора данных. Они способны работать с контроллерами любого производителя посредством протокола Modbus-RTU с подключением к порту RS-485. Доступно 11 модификаций модулей, позволяющих подобрать сочетание дискретных и аналоговых I/O, оптимально подходящее под поставленную задачу. Каскадное подключение модулей FMR друг к другу многократно увеличивает общую емкость системы ввода/вывода. Всего в сеть можно собрать до 341 модуля FMR, обеспечив до 10912 каналов.", "price": "24000.00", "image": "FRM-1010-10-0.png", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 5, "fields": {"category": 62, "name": "SEGNETICS MR-0120-00-0", "description": "12 дискретных входов (DI).\r\nМодули расширения MR работают с контроллерами SMH4, Pixel, SMH2G, SMH2G(i).\r\nК одному контроллеру можно подключить до 8 модулей MR - общее количество каналов составит 112.", "price": "9600.00", "image": "MR120.jpg", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 6, "fields": {"category": 62, "name": "SEGNETICS MR-0602-00-0", "description": "6 дискретных выходов (Dout) на основе электромеханических реле.\r\n2 аналоговых выхода (Aout) с типом сигнала 0...10В\r\nМодули расширения MR работают с контроллерами SMH4, Pixel, SMH2G, SMH2G(i).\r\nК одному контроллеру можно подключить до 8 модулей MR - общее количество каналов составит 112.", "price": "12600.00", "image": "", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 7, "fields": {"category": 63, "name": "P1001E", "description": "Промышленный компьютер, Intel® Atom™ E3845 Processor Quad Core, 1.91GHz 1x DDR3L SO-DIMM Max. up to 8 GB 1x VGA, 1x DisplayPort, 2x LAN, 4x USB, 2x COM, 8x DIO 1x Mini-PCIe Socket , 2x Universal I/O Brackets", "price": "55000.00", "image": "P1001E.jpg", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 8, "fields": {"category": 63, "name": "eBOX627-312-FL-DC-N3350", "description": "Встраиваемый безвентиляторный компьютер eBOX627-312-FL-DC-N3350, процессор Intel® Celeron® N3350 2.4 ГГц, DDR3L-1866 МГц, до 8 Гб, 1 x 2.5” HDD/SSD, 1 x mSATA, 1 х HDMI, 2 х GbE LAN, 6 х USB, 2 x RS-232, 2 x RS-232/422/485, 2 x USB 2.0, 4 x USB 3.0, 1 x Flexible I/O, 2 x Full-size PCIе Mini (USB/PCIe), 1 x SIM, 9 ~ 36 ВDC, без адаптера и кабеля питания", "price": "77000.00", "image": "eBOX627-312-FL-DC-N3350.jpg", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 9, "fields": {"category": 63, "name": "ICO310-N3160-PB-PD-DC", "description": "Встраиваемый безвентиляторный компьютер на DIN-рейку ICO310-N3160-PB-PD-DC, Intel Celeron N3160, 1х SO-DIMM, 1х VGA, 2x Gb Lan, 2х RS-232/422/485, 1x DIO, 2 х USB 3.0, 2х USB 2.0, 2 x Mini-PCIe, питание 12-24 DC-In, питание от PoE", "price": "61000.00", "image": "", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 10, "fields": {"category": 63, "name": "P2002-i3", "description": "Безвентиляторный компьютер, Intel 6th Gen. Core i3-6100U Fanless Computer with CFM Interface, CDS Interface", "price": "97000.00", "image": "", "created_at": "2023-10-08", "updated_at": "2023-10-13"}}, {"model": "catalog.product", "pk": 11, "fields": {"category": 64, "name": "SRH1-4220-N", "description": "Однофазное твердотельное реле с встр. радиатором, монтаж на DIN рейку, входное напряжение 90-240 VAC, напряжение нагрузки 24-240VAC, номинальный ток 20A, перекл. через 0", "price": "3800.00", "image": "", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 12, "fields": {"category": 64, "name": "Твердотельное реле БИ-25", "description": "Твердотельные реле серии БИ на 25 А (далее устройство) – это однофазный тиристорный (симисторный) переключатель переменного тока состоящий из коммутирующего устройства и схемы управления тиристором (симистором). Твердотельные реле этой серии обеспечивают коммутацию силовых цепей для нагрузки резистивного или индуктивного типа. Оптимально подходят для коммутации цепей управления в системах ПИД- и ON/OFF-регулирования. Рекомендации по схеме включения: при управлении индуктивной нагрузкой необходимо установить варистор параллельно цепи нагрузки. Монтаж реле производится на DIN-рейку.", "price": "2200.00", "image": "tverdotelnoe_rele_bi_25_1.png", "created_at": "2023-10-08", "updated_at": "2023-10-08"}}, {"model": "catalog.product", "pk": 13, "fields": {"category": 72, "name": "Кот", "description": "Нафаня", "price": "100500.00", "image": "P1030671.JPG", "created_at": "2023-10-13", "updated_at": "2023-10-13"}}, {"model": "catalog.contact", "pk": 1, "fields": {"country": "Россия", "inn": 123456678, "address": "Приморский край, г. Арсеньев", "phone": "+7 999 999 99 99"}}, {"model": "catalog.message", "pk": 1, "fields": {"name": "Алексей", "phone": "+7 999 999 99 99", "email": "test@mail.com", "message": "Проверка полностью заполненных полей"}}, {"model": "catalog.message", "pk": 4, "fields": {"name": "Александр", "phone": "+7999 888 88 88", "email": "", "message": "Забыл указать email"}}, {"model": "catalog.message", "pk": 5, "fields": {"name": "Степан", "phone": "", "email": "stepan@mail.com", "message": "У меня нет телефона"}}, {"model": "catalog.message", "pk": 6, "fields": {"name": "Агент", "phone": "", "email": "", "message": "Не дам своих контактных данных"}}, {"model": "catalog.message", "pk": 7, "fields": {"name": "Alex", "phone": "+7 999 999 99 99", "email": "test@mail.com", "message": "Проверка CBV"}}]
+[
+  {
+    "model": "catalog.category",
+    "pk": 61,
+    "fields": {
+      "name": "ПЛК",
+      "description": "Программируемые логические контроллеры"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 62,
+    "fields": {
+      "name": "Модули расширения",
+      "description": "Модули расширения для ПЛК"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 63,
+    "fields": {
+      "name": "Промышленные компьютеры",
+      "description": "Компьютеры для сервера умного дома"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 64,
+    "fields": {
+      "name": "Коммутационные устройства",
+      "description": "Устройства для управления питанием объектов"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 65,
+    "fields": {
+      "name": "Датчики освещения",
+      "description": "Датчики освещения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 66,
+    "fields": {
+      "name": "Датчики температуры",
+      "description": "Датчики температуры"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 67,
+    "fields": {
+      "name": "Датчики утечек",
+      "description": "Датчики утечек"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 68,
+    "fields": {
+      "name": "Датчики движения",
+      "description": "Датчики движения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 69,
+    "fields": {
+      "name": "Охранные извещатели",
+      "description": "Извещатели охранного комплекса"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 70,
+    "fields": {
+      "name": "Пожарные извещатели",
+      "description": "Извещатели противопожарного комплекса"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 71,
+    "fields": {
+      "name": "ППКП",
+      "description": "Приемно-контрольные приборы пожарной сигнализации"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 72,
+    "fields": {
+      "name": "Электроприводы",
+      "description": "Электроприводы"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "category": 61,
+      "name": "КОНТРОЛЛЕР SEGNETICS PIXEL 2511-02-0",
+      "description": "Контроллер Segnetics Pixel является свободно программируемым контроллером, предназначенным для решения практически любой задачи в HVAC системах, таких как: вентиляция, центральное кондиционирование, отопление и другие.",
+      "price": "24500.00",
+      "image": "pixel_ethernet.png",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-15",
+      "views_count": 4
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "category": 61,
+      "name": "КОНТРОЛЛЕР SEGNETICS MATRIX-1020-70-0",
+      "description": "Контроллер Segnetics Matrix-1020-70-0\r\n\r\nклавиатура 6 кнопок  \r\nАналоговые входы (AIN): 8\r\nАналоговые выходы (AOUT): 2\r\nДискретные входы (DIN): 8\r\nДискретные выходы (DOUT relay): 6\r\nДискретные выходы (DOUT triac): 0\r\nДискретные выходы (DOUT opto): 2\r\nUSB для конфигурирования, RS-485\r\nКонтроллер нового поколения Matrix разработан специально для работы с большими потоками внешних данных. Высокая скорость, впечатляющая периферия, современный дизайн и отличное качество - свойства Matrix, которые решат большинство задач автоматизации просто и недорого.",
+      "price": "40700.00",
+      "image": "matrix-1020-70-0.jpg",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-15",
+      "views_count": 2
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "category": 61,
+      "name": "КОНТРОЛЛЕР SEGNETICS SMH4-1011-00-0",
+      "description": "Контроллер Segnetics SMH4-1011-00-0\r\n\r\nСистемная шина MTBus​\r\nДисплей: диагональ 4.3\", TFT,«TrueColor», 480 х 272 точек,\r\nДискретные входы (DI): 5 гальванически развязанных\r\nДискретные выходы (DO): 2 транзисторных\r\nПоддерживаемые модули: МС, FMR\r\nВ контроллере Segnetics SMH4-1011-00-0 задействована технология высокоскоростной шины MTBus. Контроллер Segnetics SMH4 сочетает в себе мощную начинку на базе 32-битного процессора с ядром ARM Cortex-A8, сенсорный цветной экран и возможность расширения портов ввода/вывода, что позволяет гибко адаптировать этот ПЛК для широкого спектра задач автоматизации.",
+      "price": "40000.00",
+      "image": "smh-4.jpg",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-25",
+      "views_count": 5
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "category": 62,
+      "name": "SEGNETICS FMR-1010-10-0",
+      "description": "Segnetics FMR-1010-10-0, универсальный модуль расширения:\r\n8 реле\r\n16 аналоговых входов\r\nУниверсальные модули ввода/вывода FMR предназначены для наращивания каналов в системах автоматизированного управления и сбора данных. Они способны работать с контроллерами любого производителя посредством протокола Modbus-RTU с подключением к порту RS-485. Доступно 11 модификаций модулей, позволяющих подобрать сочетание дискретных и аналоговых I/O, оптимально подходящее под поставленную задачу. Каскадное подключение модулей FMR друг к другу многократно увеличивает общую емкость системы ввода/вывода. Всего в сеть можно собрать до 341 модуля FMR, обеспечив до 10912 каналов.",
+      "price": "24000.00",
+      "image": "FRM-1010-10-0.png",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-25",
+      "views_count": 8
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "category": 62,
+      "name": "SEGNETICS MR-0120-00-0",
+      "description": "12 дискретных входов (DI).\r\nМодули расширения MR работают с контроллерами SMH4, Pixel, SMH2G, SMH2G(i).\r\nК одному контроллеру можно подключить до 8 модулей MR - общее количество каналов составит 112.",
+      "price": "9600.00",
+      "image": "MR120.jpg",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "category": 62,
+      "name": "SEGNETICS MR-0602-00-0",
+      "description": "6 дискретных выходов (Dout) на основе электромеханических реле.\r\n2 аналоговых выхода (Aout) с типом сигнала 0...10В\r\nМодули расширения MR работают с контроллерами SMH4, Pixel, SMH2G, SMH2G(i).\r\nК одному контроллеру можно подключить до 8 модулей MR - общее количество каналов составит 112.",
+      "price": "12600.00",
+      "image": "",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "category": 63,
+      "name": "P1001E",
+      "description": "Промышленный компьютер, Intel® Atom™ E3845 Processor Quad Core, 1.91GHz 1x DDR3L SO-DIMM Max. up to 8 GB 1x VGA, 1x DisplayPort, 2x LAN, 4x USB, 2x COM, 8x DIO 1x Mini-PCIe Socket , 2x Universal I/O Brackets",
+      "price": "55000.00",
+      "image": "P1001E.jpg",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-25",
+      "views_count": 2
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "category": 63,
+      "name": "eBOX627-312-FL-DC-N3350",
+      "description": "Встраиваемый безвентиляторный компьютер eBOX627-312-FL-DC-N3350, процессор Intel® Celeron® N3350 2.4 ГГц, DDR3L-1866 МГц, до 8 Гб, 1 x 2.5” HDD/SSD, 1 x mSATA, 1 х HDMI, 2 х GbE LAN, 6 х USB, 2 x RS-232, 2 x RS-232/422/485, 2 x USB 2.0, 4 x USB 3.0, 1 x Flexible I/O, 2 x Full-size PCIе Mini (USB/PCIe), 1 x SIM, 9 ~ 36 ВDC, без адаптера и кабеля питания",
+      "price": "77000.00",
+      "image": "eBOX627-312-FL-DC-N3350.jpg",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "category": 63,
+      "name": "ICO310-N3160-PB-PD-DC",
+      "description": "Встраиваемый безвентиляторный компьютер на DIN-рейку ICO310-N3160-PB-PD-DC, Intel Celeron N3160, 1х SO-DIMM, 1х VGA, 2x Gb Lan, 2х RS-232/422/485, 1x DIO, 2 х USB 3.0, 2х USB 2.0, 2 x Mini-PCIe, питание 12-24 DC-In, питание от PoE",
+      "price": "61000.00",
+      "image": "",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+      "category": 63,
+      "name": "P2002-i3",
+      "description": "Безвентиляторный компьютер, Intel 6th Gen. Core i3-6100U Fanless Computer with CFM Interface, CDS Interface",
+      "price": "97000.00",
+      "image": "",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-13",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "category": 64,
+      "name": "SRH1-4220-N",
+      "description": "Однофазное твердотельное реле с встр. радиатором, монтаж на DIN рейку, входное напряжение 90-240 VAC, напряжение нагрузки 24-240VAC, номинальный ток 20A, перекл. через 0",
+      "price": "3800.00",
+      "image": "",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+      "category": 64,
+      "name": "Твердотельное реле БИ-25",
+      "description": "Твердотельные реле серии БИ на 25 А (далее устройство) – это однофазный тиристорный (симисторный) переключатель переменного тока состоящий из коммутирующего устройства и схемы управления тиристором (симистором). Твердотельные реле этой серии обеспечивают коммутацию силовых цепей для нагрузки резистивного или индуктивного типа. Оптимально подходят для коммутации цепей управления в системах ПИД- и ON/OFF-регулирования. Рекомендации по схеме включения: при управлении индуктивной нагрузкой необходимо установить варистор параллельно цепи нагрузки. Монтаж реле производится на DIN-рейку.",
+      "price": "2200.00",
+      "image": "tverdotelnoe_rele_bi_25_1.png",
+      "created_at": "2023-10-08",
+      "updated_at": "2023-10-08",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+      "category": 72,
+      "name": "Кот",
+      "description": "Нафаня",
+      "price": "100500.00",
+      "image": "P1030671.JPG",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13",
+      "views_count": 0
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 17,
+    "fields": {
+      "category": 72,
+      "name": "Тест",
+      "description": "Тест",
+      "price": "10000.00",
+      "image": "",
+      "created_at": "2023-10-25",
+      "updated_at": "2023-10-25",
+      "views_count": 23
+    }
+  },
+  {
+    "model": "catalog.contact",
+    "pk": 1,
+    "fields": {
+      "country": "Россия",
+      "inn": 123456678,
+      "address": "Приморский край, г. Арсеньев",
+      "phone": "+7 999 999 99 99"
+    }
+  },
+  {
+    "model": "catalog.message",
+    "pk": 1,
+    "fields": {
+      "name": "Алексей",
+      "phone": "+7 999 999 99 99",
+      "email": "test@mail.com",
+      "message": "Проверка полностью заполненных полей"
+    }
+  },
+  {
+    "model": "catalog.message",
+    "pk": 4,
+    "fields": {
+      "name": "Александр",
+      "phone": "+7999 888 88 88",
+      "email": "",
+      "message": "Забыл указать email"
+    }
+  },
+  {
+    "model": "catalog.message",
+    "pk": 5,
+    "fields": {
+      "name": "Степан",
+      "phone": "",
+      "email": "stepan@mail.com",
+      "message": "У меня нет телефона"
+    }
+  },
+  {
+    "model": "catalog.message",
+    "pk": 6,
+    "fields": {
+      "name": "Агент",
+      "phone": "",
+      "email": "",
+      "message": "Не дам своих контактных данных"
+    }
+  },
+  {
+    "model": "catalog.message",
+    "pk": 7,
+    "fields": {
+      "name": "Alex",
+      "phone": "+7 999 999 99 99",
+      "email": "test@mail.com",
+      "message": "Проверка CBV"
+    }
+  },
+  {
+    "model": "catalog.productversion",
+    "pk": 1,
+    "fields": {
+      "product": 5,
+      "number": 1,
+      "name": "Первая",
+      "is_active": false
+    }
+  },
+  {
+    "model": "catalog.productversion",
+    "pk": 2,
+    "fields": {
+      "product": 5,
+      "number": 2,
+      "name": "Вторая",
+      "is_active": false
+    }
+  },
+  {
+    "model": "catalog.productversion",
+    "pk": 3,
+    "fields": {
+      "product": 5,
+      "number": 3,
+      "name": "Третья",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.productversion",
+    "pk": 4,
+    "fields": {
+      "product": 17,
+      "number": 1,
+      "name": "Первая",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.productversion",
+    "pk": 5,
+    "fields": {
+      "product": 4,
+      "number": 1,
+      "name": "Первая",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.productversion",
+    "pk": 6,
+    "fields": {
+      "product": 3,
+      "number": 1,
+      "name": "Первая",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.productversion",
+    "pk": 7,
+    "fields": {
+      "product": 17,
+      "number": 2,
+      "name": "Вторая",
+      "is_active": true
+    }
+  }
+]
