@@ -5,7 +5,7 @@ from users.models import User
 # генератор списка символов для ключа (0-9, A-Z, a-z)
 key_symbols = [chr(i) for i in list(range(48, 58)) + list(range(65, 91)) + list(range(97, 123))]
 
-# генератор списка символов для пароля (0-9, A-Z, a-z)
+# генератор списка символов для пароля (спецсимволы, 0-9, A-Z, a-z)
 password_symbols = [chr(i) for i in list(range(33, 58)) + list(range(65, 91)) + list(range(97, 123))]
 
 
