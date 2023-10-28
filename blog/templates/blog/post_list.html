@@ -1,8 +1,10 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
-    <div class="col-auto mb-5">
-        <a href="{% url "blog:edit_list" %}" class="btn btn-outline-primary">Настроить ленту</a>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="col-auto mb-5">
+            <a href="{% url "blog:edit_list" %}" class="btn btn-outline-primary">Настроить ленту</a>
+        </div>
+    {% endif %}
     <div class="row">
         <div class="col-12">
             {% for object in object_list %}
