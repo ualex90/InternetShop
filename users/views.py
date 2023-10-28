@@ -24,7 +24,7 @@ class RegisterView(CreateView):
     model = User
     form_class = RegisterForm
     template_name = 'users/register.html'
-    success_url = reverse_lazy('catalog:categories')
+    success_url = reverse_lazy('users:email_verify')
 
     def form_valid(self, form):
         key = get_user_key()
@@ -34,33 +34,37 @@ class RegisterView(CreateView):
         send_mail(
             subject='подтверждение регистрации',
             message=f'Для подтверждения регистрации перейдите по ссылке: '
-                    f'http://127.0.0.1:8000/users/email_verify/{key}',
+                    f'http://127.0.0.1:8000/users/email_verify/?key={key}',
             from_email=None,
             recipient_list=[self.object.email],
         )
         return super().form_valid(form)
 
 
-def email_verify(request, key):
-    context = dict()
-    try:
-        user = User.objects.get(key=key)
-    except users.models.User.DoesNotExist:
-        context = {
-            'title': 'Подтверждение регистрации',
-            'description': 'Пользователь не существует',
-            'verify': False,
-        }
-    else:
-        user.is_active = True
-        user.save()
-        context = {
-            'title': 'Подтверждение регистрации',
-            'description': 'Спасибо за успешную регистрацию!',
-            'verify': True,
-        }
-    finally:
-        return render(request, 'users/user_verification.html', context)
+class EmailVerifyView(TemplateView):
+    template_name = 'users/user_verification.html'
+    extra_context = {
+        'title': 'Подтверждение регистрации',
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        key = self.request.GET.get('key')
+        if key:
+            try:
+                user = User.objects.get(key=key)
+            except users.models.User.DoesNotExist:
+                context['description'] = 'Пользователь не существует'
+            else:
+                user.is_active = True
+                user.save()
+                context['description'] = 'Спасибо за успешную регистрацию!'
+                context['verify'] = True
+            finally:
+                return context
+        context['description'] = 'Для подтверждения регистрации перейдите по ссылке высланной на Ваш email'
+        context['register_end'] = True
+        return context
 
 
 class PasswordRecoveryView(TemplateView):

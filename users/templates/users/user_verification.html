@@ -8,5 +8,8 @@
         {% else %}
             <div class="col-8"><a href="{% url 'catalog:categories' %}">На главную</a></div>
         {% endif %}
+        {% if register_end %}
+            <div class="col-8"><a href="{% url 'users:login' %}">Вход в систему</a></div>
+        {% endif %}
     </div>
 {% endblock %}

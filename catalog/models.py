@@ -16,7 +16,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    producer = models.ForeignKey('users.User', **NULLABLE, on_delete=models.SET_NULL, verbose_name='Создатель')
+    owner = models.ForeignKey('users.User', **NULLABLE, on_delete=models.SET_NULL, verbose_name='Создатель')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     name = models.CharField(max_length=100, verbose_name='Наименование')
     description = models.TextField(verbose_name='Описание')

@@ -16,7 +16,7 @@
             <div class="mt-5">
                 <p class="card-text mb-auto">Добавлено: {{ object.created_at }}</p>
                 {% if user.is_authenticated %}
-                    <p class="card-text mb-auto">Пользователем {{ object.producer }}</p>
+                    <p class="card-text mb-auto">Пользователем {{ object.owner }}</p>
                 {% endif %}
             </div>
             <div class="mt-3">
