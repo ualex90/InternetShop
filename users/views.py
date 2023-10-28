@@ -50,6 +50,8 @@ class EmailVerifyView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         key = self.request.GET.get('key')
+
+        # Если в запросе есть 'key', то выполняем верификацию
         if key:
             try:
                 user = User.objects.get(key=key)
@@ -62,6 +64,8 @@ class EmailVerifyView(TemplateView):
                 context['verify'] = True
             finally:
                 return context
+
+        # Если нет ключа, то предложим пользователю заглянуть в свою почту
         context['description'] = 'Для подтверждения регистрации перейдите по ссылке высланной на Ваш email'
         context['register_end'] = True
         return context
