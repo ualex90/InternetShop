@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
@@ -15,7 +16,7 @@ class PostListView(ListView):
     }
 
 
-class PostEditListView(ListView):
+class PostEditListView(LoginRequiredMixin, ListView):
     model = Post
     queryset = Post.objects.filter().order_by('pk')
     template_name = 'blog/post_edit_list.html'
@@ -44,7 +45,7 @@ class PostDetailView(DetailView):
         return context_data
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'body', 'image', 'is_published']
     extra_context = {
@@ -64,7 +65,7 @@ class PostCreateView(CreateView):
         return reverse('blog:edit_list')
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     fields = ['title', 'body', 'image', 'is_published']
     extra_context = {
@@ -83,7 +84,7 @@ class PostUpdateView(UpdateView):
         return reverse('blog:post', args=[self.object.pk])
 
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     extra_context = {
         'title': 'Удаление',
