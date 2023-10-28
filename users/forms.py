@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import AuthenticationForm
-from django.forms import CheckboxInput
 
 from catalog.forms import StyleFrmMixin
 
