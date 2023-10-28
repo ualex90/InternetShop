@@ -66,7 +66,7 @@ class EmailVerifyView(TemplateView):
                 return context
 
         # Если нет ключа, то предложим пользователю заглянуть в свою почту
-        context['description'] = 'Для подтверждения регистрации перейдите по ссылке высланной на Ваш email'
+        context['description'] = 'Для подтверждения регистрации перейдите по ссылке отправленной на Ваш email'
         context['register_end'] = True
         return context
 
