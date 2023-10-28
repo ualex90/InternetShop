@@ -15,16 +15,23 @@
             </div>
             <div class="mt-5">
                 <p class="card-text mb-auto">Добавлено: {{ object.created_at }}</p>
+                {% if user.is_authenticated %}
+                    <p class="card-text mb-auto">Пользователем {{ object.owner }}</p>
+                {% endif %}
             </div>
-            <div class="mt-1">
+            <div class="mt-3">
                 <p class="card-text mb-auto">Изменено: {{ object.updated_at }}</p>
             </div>
-            <div class="mt-1">
+            <div class="mt-3">
                 <p class="card-text mb-auto">Количество просмотров: {{ object.views_count }}</p>
             </div>
             <div class="mt-5">
-                <a type="button" class="btn btn-outline-primary" href="{% url 'catalog:update_product' object.pk %}">Изменить</a>
-                <a type="button" class="btn btn-outline-danger" href="{% url 'catalog:delete_product' object.pk %}">удалить</a>
+                {% if user.is_authenticated %}
+                    <a type="button" class="btn btn-outline-primary"
+                       href="{% url 'catalog:update_product' object.pk %}">Изменить</a>
+                    <a type="button" class="btn btn-outline-danger"
+                       href="{% url 'catalog:delete_product' object.pk %}">удалить</a>
+                {% endif %}
             </div>
         </div>
         <div class="col-6">

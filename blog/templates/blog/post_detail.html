@@ -9,7 +9,8 @@
             <div class="row">
                 <div class="col-4">
                     <div class="mt-5">
-                        <input type="button" class="btn btn-outline-secondary form-control" onclick="history.back()" value="<< назад"/>
+                        <input type="button" class="btn btn-outline-secondary form-control" onclick="history.back()"
+                               value="<< назад"/>
                     </div>
                 </div>
             </div>
@@ -19,10 +20,13 @@
             <div class="mt-1">
                 <p class="card-text mb-auto">Количество просмотров: {{ object.views_count }}</p>
             </div>
-            <div class="mt-5">
-                <a type="button" class="btn btn-outline-primary" href="{% url 'blog:update' object.pk %}">Изменить</a>
-                <a type="button" class="btn btn-outline-danger" href="{% url 'blog:delete' object.pk %}">удалить</a>
-            </div>
+            {% if user.is_authenticated %}
+                <div class="mt-5">
+                    <a type="button" class="btn btn-outline-primary"
+                       href="{% url 'blog:update' object.pk %}">Изменить</a>
+                    <a type="button" class="btn btn-outline-danger" href="{% url 'blog:delete' object.pk %}">удалить</a>
+                </div>
+            {% endif %}
         </div>
         <div class="col-6">
             <img class="card-img-top"

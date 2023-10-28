@@ -1,5 +1,7 @@
 from django.db import models
 
+NULLABLE = {'blank': True, 'null': True}
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование')
@@ -14,11 +16,12 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    owner = models.ForeignKey('users.User', **NULLABLE, on_delete=models.SET_NULL, verbose_name='Создатель')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     name = models.CharField(max_length=100, verbose_name='Наименование')
     description = models.TextField(verbose_name='Описание')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за покупку')
-    image = models.ImageField(verbose_name='Превью', blank=True, null=True)
+    image = models.ImageField(**NULLABLE, verbose_name='Превью')
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateField(auto_now=True, verbose_name='Дата изменения')
     views_count = models.IntegerField(default=0, verbose_name='количество просмотров')
@@ -47,8 +50,8 @@ class Contact(models.Model):
 
 class Message(models.Model):
     name = models.CharField(max_length=100, verbose_name='Имя')
-    phone = models.CharField(max_length=20, blank=True, null=True, verbose_name='Телефон')
-    email = models.CharField(max_length=100, blank=True, null=True, verbose_name='email')
+    phone = models.CharField(**NULLABLE, max_length=20, verbose_name='Телефон')
+    email = models.CharField(**NULLABLE, max_length=100, verbose_name='email')
     message = models.TextField(verbose_name='Сообщение')
 
     def __str__(self):
