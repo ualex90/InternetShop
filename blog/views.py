@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from pytils.translit import slugify
 
+from blog.forms import PostForm
 from blog.models import Post
 
 
@@ -47,7 +48,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'body', 'image', 'is_published']
+    form_class = PostForm
     extra_context = {
         'title': 'Новая запись',
         'description': 'Создание новой записи в блог'
@@ -57,6 +58,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         if form.is_valid():
             new_post = form.save()
             new_post.slug = slugify(new_post.title)
+            new_post.owner = self.request.user
             new_post.save()
         return super().form_valid(form)
 
@@ -67,7 +69,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['title', 'body', 'image', 'is_published']
+    form_class = PostForm
     extra_context = {
         'title': 'Новая запись',
         'description': 'Создание новой записи в блог'

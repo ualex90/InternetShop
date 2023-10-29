@@ -4,6 +4,7 @@ from catalog.models import NULLABLE
 
 
 class Post(models.Model):
+    owner = models.ForeignKey('users.User', **NULLABLE, on_delete=models.SET_NULL, verbose_name='Создатель')
     title = models.CharField(max_length=150, verbose_name='заголовок')
     slug = models.CharField(**NULLABLE, max_length=150, verbose_name='slug')
     body = models.TextField(verbose_name='содержимое')
