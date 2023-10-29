@@ -3,10 +3,10 @@ from django.contrib.auth.views import LogoutView as BaseLogoutView
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, UpdateView
 
 import users
-from users.forms import LoginForm, RegisterForm
+from users.forms import LoginForm, RegisterForm, UserProfileForm
 from users.models import User
 from users.utils import get_user_key, get_password
 
@@ -98,3 +98,16 @@ class PasswordRecoveryView(TemplateView):
 
             return redirect(reverse('users:login'))
         return self.render_to_response(context)
+
+
+class ProfileView(UpdateView):
+    model = User
+    form_class = UserProfileForm
+    success_url = reverse_lazy('users:profile')
+    extra_context = {
+        'title': 'Профиль',
+        'description': 'Редактировать профиль пользователя',
+    }
+
+    def get_object(self, queryset=None):
+        return self.request.user
