@@ -1,5 +1,7 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.forms import inlineformset_factory
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
@@ -24,7 +26,7 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.filter(category_id=self.kwargs.get('pk'))
+        queryset = queryset.filter(category_id=self.kwargs.get('pk')).filter(is_published=True)
         # Пройдемся по всем выбранным продуктам
         for item in queryset:
             # Отфильтруем версии по продукту и признаку активности
@@ -90,12 +92,13 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('catalog:products', args=[self.object.category.pk])
+        return reverse('catalog:products_user')
 
 
-class ProductUpdateView(LoginRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
+    permission_required = 'catalog.change_product'
     extra_context = {
         'title': 'Редактирование',
     }
@@ -121,19 +124,32 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             formset.save()
         return super().form_valid(form)
 
+    def has_permission(self):
+        if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
+            return True
+        has_permission = super().has_permission()
+        return has_permission
+
     def get_success_url(self):
         return reverse('catalog:product', args=[self.object.pk])
 
 
-class ProductDeleteView(LoginRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Product
+    permission_required = 'catalog.delete_product'
     extra_context = {
         'title': 'Удаление',
         'description': 'Удаление продукта',
     }
 
     def get_success_url(self):
-        return reverse('catalog:products', args=[self.object.category.pk])
+        return reverse('catalog:products_user')
+
+    def has_permission(self):
+        if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
+            return True
+        has_permission = super().has_permission()
+        return has_permission
 
 
 class ContactView(TemplateView):
@@ -156,3 +172,60 @@ class ContactView(TemplateView):
         message = self.request.POST.get('message')
         Message.objects.create(name=name, phone=phone, email=email, message=message)
         return self.render_to_response(context)
+
+
+class ProductModeratorListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+    permission_required = 'catalog.set_published'
+    model = Product
+    template_name = 'catalog/product_list.html'
+    queryset = Product.objects.filter().filter().order_by('is_published')
+    extra_context = {
+        'title': 'Продукты',
+        'description': 'Модерация продуктов',
+    }
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # Пройдемся по всем выбранным продуктам
+        for item in queryset:
+            # Отфильтруем версии по продукту и признаку активности
+            version = ProductVersion.objects.filter(product_id=item.pk).filter(is_active=True)
+            # Если есть активная версия продукта, то добавим ее в аттрибут "version"
+            item.version = version[0] if version else None
+        return queryset
+
+
+@login_required
+@permission_required('catalog.set_published')
+def published(request, pk):
+    post_item = get_object_or_404(Product, pk=pk)
+    if post_item.is_published:
+        post_item.is_published = False
+    else:
+        post_item.is_published = True
+
+    post_item.save()
+
+    return redirect(reverse('catalog:product', args=[pk]))
+
+
+class ProductUserListView(LoginRequiredMixin, ListView):
+    permission_required = 'catalog.set_published'
+    model = Product
+    template_name = 'catalog/product_list.html'
+    extra_context = {
+        'title': 'Продукты',
+        'description': 'Мои продукты',
+    }
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(owner=self.request.user)
+
+        # Пройдемся по всем выбранным продуктам
+        for item in queryset:
+            # Отфильтруем версии по продукту и признаку активности
+            version = ProductVersion.objects.filter(product_id=item.pk).filter(is_active=True)
+            # Если есть активная версия продукта, то добавим ее в аттрибут "version"
+            item.version = version[0] if version else None
+        return queryset

@@ -24,7 +24,8 @@ class Product(models.Model):
     image = models.ImageField(**NULLABLE, verbose_name='Превью')
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateField(auto_now=True, verbose_name='Дата изменения')
-    views_count = models.IntegerField(default=0, verbose_name='количество просмотров')
+    views_count = models.IntegerField(default=0, verbose_name='Количество просмотров')
+    is_published = models.BooleanField(default=False, verbose_name='Опубликован')
 
     def __str__(self):
         return f'{self.name} {self.price}'
@@ -32,6 +33,9 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
+        permissions = [
+            ('set_published', 'Can publish product'),
+        ]
 
 
 class Contact(models.Model):
