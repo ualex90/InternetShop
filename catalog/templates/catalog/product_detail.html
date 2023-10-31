@@ -39,11 +39,11 @@
                                href="{% url 'catalog:published' object.pk %}">Опубликовать</a>
                         {% endif %}
                     {% endif %}
-                    {% if perms.catalog.change_product %}
+                    {% if perms.catalog.change_product or object.owner == user %}
                         <a type="button" class="btn btn-outline-primary"
                            href="{% url 'catalog:update_product' object.pk %}">Изменить</a>
                     {% endif %}
-                    {% if perms.catalog.delete_product %}
+                    {% if perms.catalog.delete_product or object.owner == user %}
                         <a type="button" class="btn btn-outline-danger"
                            href="{% url 'catalog:delete_product' object.pk %}">удалить</a>
                     {% endif %}

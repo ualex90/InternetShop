@@ -1,7 +1,7 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
     <div class="col-6 mb-5">
-        {% if perms.catalog.add_product %}
+        {% if user.is_authenticated %}
             <a href="{% url "catalog:create_product" %}" class="btn btn-outline-primary">Добавить новый продукт</a>
         {% endif %}
     </div>

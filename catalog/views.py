@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.forms import inlineformset_factory
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
@@ -64,10 +64,9 @@ class ProductDetailView(DetailView):
         return context_data
 
 
-class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
-    permission_required = 'main.add_product'
     extra_context = {
         'title': 'Продукт',
         'description': 'Добавление нового продукта',
@@ -93,13 +92,13 @@ class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('catalog:products', args=[self.object.category.pk])
+        return reverse('catalog:products_user')
 
 
 class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
-    permission_required = 'main.change_product'
+    permission_required = 'catalog.change_product'
     extra_context = {
         'title': 'Редактирование',
     }
@@ -125,20 +124,32 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
             formset.save()
         return super().form_valid(form)
 
+    def has_permission(self):
+        if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
+            return True
+        has_permission = super().has_permission()
+        return has_permission
+
     def get_success_url(self):
         return reverse('catalog:product', args=[self.object.pk])
 
 
 class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Product
-    permission_required = 'main.delete_product'
+    permission_required = 'catalog.delete_product'
     extra_context = {
         'title': 'Удаление',
         'description': 'Удаление продукта',
     }
 
     def get_success_url(self):
-        return reverse('catalog:products', args=[self.object.category.pk])
+        return reverse('catalog:products_user')
+
+    def has_permission(self):
+        if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
+            return True
+        has_permission = super().has_permission()
+        return has_permission
 
 
 class ContactView(TemplateView):
@@ -163,7 +174,7 @@ class ContactView(TemplateView):
         return self.render_to_response(context)
 
 
-class ProductModeratorListView(PermissionRequiredMixin, ListView):
+class ProductModeratorListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     permission_required = 'catalog.set_published'
     model = Product
     template_name = 'catalog/product_list.html'
@@ -196,3 +207,25 @@ def published(request, pk):
     post_item.save()
 
     return redirect(reverse('catalog:product', args=[pk]))
+
+
+class ProductUserListView(LoginRequiredMixin, ListView):
+    permission_required = 'catalog.set_published'
+    model = Product
+    template_name = 'catalog/product_list.html'
+    extra_context = {
+        'title': 'Продукты',
+        'description': 'Мои продукты',
+    }
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(owner=self.request.user)
+
+        # Пройдемся по всем выбранным продуктам
+        for item in queryset:
+            # Отфильтруем версии по продукту и признаку активности
+            version = ProductVersion.objects.filter(product_id=item.pk).filter(is_active=True)
+            # Если есть активная версия продукта, то добавим ее в аттрибут "version"
+            item.version = version[0] if version else None
+        return queryset
