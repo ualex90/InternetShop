@@ -129,8 +129,7 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
         if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
             return True
         # если не является, то следуем ограничениям прав 'catalog.change_product'
-        has_permission = super().has_permission()
-        return has_permission
+        return super().has_permission()
 
     def get_success_url(self):
         return reverse('catalog:product', args=[self.object.pk])
@@ -152,8 +151,7 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
         if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
             return True
         # если не является, то следуем ограничениям прав 'catalog.delete_product'
-        has_permission = super().has_permission()
-        return has_permission
+        return super().has_permission()
 
 
 class ContactView(TemplateView):
