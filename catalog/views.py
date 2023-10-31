@@ -125,8 +125,10 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
         return super().form_valid(form)
 
     def has_permission(self):
+        # Проверяем, является ли пользователь владельцем продукта, если да, то разрешаем редактирование
         if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
             return True
+        # если не является, то следуем ограничениям прав 'catalog.change_product'
         has_permission = super().has_permission()
         return has_permission
 
@@ -146,8 +148,10 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
         return reverse('catalog:products_user')
 
     def has_permission(self):
+        # Проверяем, является ли пользователь владельцем продукта, если да, то разрешаем удаление
         if self.model.objects.get(pk=self.kwargs.get('pk')).owner == self.request.user:
             return True
+        # если не является, то следуем ограничениям прав 'catalog.delete_product'
         has_permission = super().has_permission()
         return has_permission
 
