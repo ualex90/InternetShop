@@ -1,24 +1,25 @@
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.forms import inlineformset_factory
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm, ProductVersionForm
 from catalog.models import Product, Category, Message, Contact, ProductVersion
+from catalog.services import get_object_list
 
 
 class CategoryListView(ListView):
     model = Category
-    # paginate_by = 9
     extra_context = {
         'title': 'Каталог товаров',
         'description': 'Категории',
     }
 
-    def get_paginate_by(self, queryset):
-        return self.request.GET.get('paginate_by', self.paginate_by)
+    def get_queryset(self):
+        # возвращаем кэшированный queryset, который присвоится к object_list
+        return get_object_list(self.model)
 
 
 class ProductListView(ListView):
