@@ -12,6 +12,7 @@ from catalog.services import get_object_list
 
 class CategoryListView(ListView):
     model = Category
+    paginate_by = 9
     extra_context = {
         'title': 'Каталог товаров',
         'description': 'Категории',
@@ -24,6 +25,7 @@ class CategoryListView(ListView):
 
 class ProductListView(ListView):
     model = Product
+    paginate_by = 10
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -180,6 +182,7 @@ class ContactView(TemplateView):
 class ProductModeratorListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     permission_required = 'catalog.set_published'
     model = Product
+    paginate_by = 6
     template_name = 'catalog/product_list.html'
     queryset = Product.objects.filter().filter().order_by('is_published')
     extra_context = {
@@ -215,6 +218,7 @@ def published(request, pk):
 class ProductUserListView(LoginRequiredMixin, ListView):
     permission_required = 'catalog.set_published'
     model = Product
+    paginate_by = 10
     template_name = 'catalog/product_list.html'
     extra_context = {
         'title': 'Продукты',

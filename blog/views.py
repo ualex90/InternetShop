@@ -19,6 +19,7 @@ class PostListView(ListView):
 
 class PostEditListView(LoginRequiredMixin, ListView):
     model = Post
+    paginate_by = 10
     queryset = Post.objects.filter().order_by('pk')
     template_name = 'blog/post_edit_list.html'
     extra_context = {
